@@ -79,7 +79,7 @@ export const SubscribeForm = () => {
           <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
           <Input
             type="email"
-            placeholder="chabdulrahmaan@gmail.com"
+            placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isLoading}

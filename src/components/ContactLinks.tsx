@@ -11,13 +11,13 @@ export const ContactLinks = () => {
     {
       name: 'GitHub',
       icon: Github,
-      href: 'https://github.com/chabdulrahman',
+      href: 'https://github.com/chabdulrahmn',
       ariaLabel: 'Visit GitHub profile',
     },
     {
       name: 'Email',
       icon: Mail,
-      href: 'mailto:contact@chabdulrahman.com',
+      href: 'mailto:chabdulrahmaan@gmail.com',
       ariaLabel: 'Send an email',
     },
   ];
