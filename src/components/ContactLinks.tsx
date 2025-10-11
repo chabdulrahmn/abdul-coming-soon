@@ -1,23 +1,27 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 export const ContactLinks = () => {
+  const linkedinUsername = (import.meta.env.VITE_LINKEDIN_USERNAME as string) || 'chabdulrahman';
+  const githubUsername = (import.meta.env.VITE_GITHUB_USERNAME as string) || 'chabdulrahmn';
+  const contactEmail = (import.meta.env.VITE_CONTACT_EMAIL as string) || 'chabdulrahmaan@gmail.com';
+
   const links = [
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      href: 'https://www.linkedin.com/in/chabdulrahman',
+      href: `https://www.linkedin.com/in/${linkedinUsername}`,
       ariaLabel: 'Visit LinkedIn profile',
     },
     {
       name: 'GitHub',
       icon: Github,
-      href: 'https://github.com/chabdulrahmn',
+      href: `https://github.com/${githubUsername}`,
       ariaLabel: 'Visit GitHub profile',
     },
     {
       name: 'Email',
       icon: Mail,
-      href: 'mailto:chabdulrahmaan@gmail.com',
+      href: `mailto:${contactEmail}`,
       ariaLabel: 'Send an email',
     },
   ];

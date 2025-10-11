@@ -6,22 +6,19 @@ import { SkillsBadges } from '@/components/SkillsBadges';
 import profileImage from '@/assets/profile.jpg';
 
 const Index = () => {
-  // Configure your launch date here (format: 'YYYY-MM-DD')
-  const LAUNCH_DATE = '2025-12-31';
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-background via-background to-muted overflow-hidden">
       <FloatingBlobs />
-      
+
       <div className="container mx-auto px-4 py-12 sm:py-20 relative">
         <div className="max-w-4xl mx-auto text-center space-y-12 sm:space-y-16">
           {/* Hero Section */}
           <header className="space-y-4 sm:space-y-6 animate-fade-in">
             <div className="flex justify-center mb-6">
-              <img 
-                src={profileImage} 
-                alt="CH Abdul Rahman - Full Stack Web Developer" 
-                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-2xl shadow-[var(--shadow-elegant)] border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105"
+              <img
+                src={profileImage}
+                alt="CH Abdul Rahman - Full Stack Web Developer"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-2xl shadow-[var(--shadow-elegant)] border-[3px] border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105"
               />
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight">
@@ -32,15 +29,18 @@ const Index = () => {
                 Portfolio Coming Soon
               </p>
             </div>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-              Full Stack Web Developer
-              <span className="block sm:inline sm:mx-2">•</span>
-              <span className="text-primary font-medium">Laravel</span>
-              <span className="mx-2">•</span>
-              <span className="text-secondary font-medium">Vue.js</span>
-              <span className="mx-2">•</span>
-              <span className="text-accent font-medium">Next.js</span>
-            </p>
+            <div className="space-y-2">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+                Full Stack Web Developer
+              </p>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+                <span className="text-primary font-medium">Laravel</span>
+                <span className="mx-2">•</span>
+                <span className="text-secondary font-medium">Vue.js</span>
+                <span className="mx-2">•</span>
+                <span className="text-accent font-medium">Next.js</span>
+              </p>
+            </div>
           </header>
 
           {/* Skills Section */}
@@ -53,7 +53,7 @@ const Index = () => {
             <h2 className="text-2xl sm:text-3xl font-semibold text-foreground">
               Launching In
             </h2>
-            <CountdownTimer targetDate={LAUNCH_DATE} />
+            <CountdownTimer />
           </section>
 
           {/* Subscribe Section */}

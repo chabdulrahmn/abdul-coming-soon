@@ -1,8 +1,18 @@
 export const SkillsBadges = () => {
-  const skills = ['Laravel', 'Vue.js', 'React', 'Next.js', 'MySQL', 'Docker'];
-
+  const skills = [
+    'Bootstrap',
+    'Tailwind',
+    'TypeScript',
+    'REST APIs',
+    'MySQL',
+    'PostgreSQL',
+    'Docker',
+    'GitHub',
+    'CI/CD',
+    'SaaS Development',
+  ];
   return (
-    <div className="flex flex-wrap gap-3 justify-center animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
+    <div className="flex flex-wrap gap-3 justify-center max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}>
       {skills.map((skill) => (
         <span
           key={skill}

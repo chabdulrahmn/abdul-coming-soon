@@ -39,26 +39,45 @@ export const SubscribeForm = () => {
     setIsLoading(true);
 
     try {
-      // TODO: Replace with your email service endpoint
-      // Example endpoints:
-      // - Mailchimp: POST to your Mailchimp list endpoint
-      // - ConvertKit: POST to https://api.convertkit.com/v3/forms/{form_id}/subscribe
-      // - Formspree: POST to https://formspree.io/f/{form_id}
-      
-      // Simulated API call - Replace this with actual implementation
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // For demo purposes, log to console
-      console.log('Subscribe email:', email);
-      
+      const formId = import.meta.env.VITE_CONVERTKIT_FORM_ID as string;
+      const apiKey = import.meta.env.VITE_CONVERTKIT_API_KEY as string;
+
+      if (!formId || !apiKey) {
+        toast({
+          variant: "destructive",
+          title: "Missing configuration",
+          description: "ConvertKit form ID or API key is not set.",
+        });
+        return;
+      }
+
+      const response = await fetch(`https://api.convertkit.com/v3/forms/${formId}/subscribe`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          api_key: apiKey,
+          email,
+        }),
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(`Subscription failed: ${response.status} ${text}`);
+      }
+
+      // Optionally inspect response JSON
+      await response.json();
+
       setIsSuccess(true);
       toast({
         title: "Successfully subscribed!",
         description: "You'll be notified when the portfolio launches.",
       });
-      
+
       setEmail('');
-      
+
       // Reset success state after 3 seconds
       setTimeout(() => setIsSuccess(false), 3000);
     } catch (error) {
@@ -87,8 +106,8 @@ export const SubscribeForm = () => {
             aria-label="Email address"
           />
         </div>
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           size="lg"
           disabled={isLoading || isSuccess}
           className="h-12 px-8 font-semibold transition-all hover:scale-105"
