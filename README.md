@@ -1,4 +1,6 @@
-# Coming Soon Landing Page - Deployment Guide
+# Coming Soon Landing Page
+
+![Project Preview](./public/screenshot.png)
 
 ## 🚀 Quick Start
 
@@ -28,42 +30,15 @@ VITE_CONTACT_EMAIL="you@example.com"
 
 ### 3. Configure Email Subscription
 
-The subscription form in `src/components/SubscribeForm.tsx` is integrated with ConvertKit and uses env configuration. You can switch to alternative providers if you prefer (examples below).
-
-#### Option A: Mailchimp (Recommended for beginners)
-
-1. Sign up at [mailchimp.com](https://mailchimp.com)
-2. Create an audience/list
-3. Get your signup form action URL from Mailchimp
-4. Update `src/components/SubscribeForm.tsx`:
-
-```typescript
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  // ... validation code ...
-
-  const formData = new FormData();
-  formData.append('EMAIL', email);
-
-  const response = await fetch('YOUR_MAILCHIMP_FORM_ACTION_URL', {
-    method: 'POST',
-    body: formData,
-    mode: 'no-cors', // Required for Mailchimp
-  });
-
-  // Success handling...
-};
-```
-
-#### Option B: ConvertKit (Built-in)
+The subscription form in `src/components/SubscribeForm.tsx` is integrated with ConvertKit and uses env configuration. You can switch to alternative providers if you prefer.
 
 1. Sign up at [convertkit.com](https://convertkit.com)
 2. Create a Form and note the Form ID
 3. Get your API key from Account Settings
 4. Set these in `.env`:
 ```env
-VITE_CONVERTKIT_FORM_ID="8658338"    # your form id
-VITE_CONVERTKIT_API_KEY="ck_live_xxx" # your API key
+VITE_CONVERTKIT_FORM_ID="your-form-id"    # your form id
+VITE_CONVERTKIT_API_KEY="your-api-key" # your API key
 ```
 `SubscribeForm.tsx` will POST to ConvertKit using URL-encoded form data:
 ```ts
@@ -77,43 +52,6 @@ await fetch(`https://api.convertkit.com/v3/forms/${import.meta.env.VITE_CONVERTK
 });
 ```
 Note: API keys in Vite are exposed client-side. For stricter security, proxy this call via a serverless function.
-
-#### Option C: Formspree (Easiest, no backend needed)
-
-1. Sign up at [formspree.io](https://formspree.io)
-2. Create a new form and get your form ID
-3. Update `src/components/SubscribeForm.tsx`:
-
-```typescript
-const response = await fetch('https://formspree.io/f/{YOUR_FORM_ID}', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ email }),
-});
-
-const data = await response.json();
-
-if (response.ok) {
-  setIsSuccess(true);
-  // ... success handling
-}
-```
-
-#### Option D: Custom Backend Endpoint
-
-If you have your own backend:
-
-```typescript
-const response = await fetch('https://your-api.com/api/subscribe', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ email }),
-});
-```
 
 ### 4. Update SEO Meta Tags
 
