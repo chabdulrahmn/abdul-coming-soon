@@ -93,7 +93,7 @@ export const SubscribeForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}>
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col sm:flex-row gap-x-3 gap-y-4">
         <div className="relative flex-1">
           <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
           <Input

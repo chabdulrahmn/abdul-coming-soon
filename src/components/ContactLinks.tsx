@@ -27,7 +27,7 @@ export const ContactLinks = () => {
   ];
 
   return (
-    <div className="flex gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.5s', animationFillMode: 'backwards' }}>
+    <div className="flex flex-wrap gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.5s', animationFillMode: 'backwards' }}>
       {links.map((link) => (
         <a
           key={link.name}
