@@ -11,7 +11,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
 const TimeUnit: React.FC<{ value: number; label: string }> = React.memo(({ value, label }) => (
   <div className="flex flex-col items-center">
-    <div className="bg-card border border-border rounded-2xl p-4 sm:p-6 min-w-[80px] sm:min-w-[100px] shadow-[var(--shadow-soft)]">
+    <div className="bg-card border border-border rounded-2xl p-4 sm:p-6 sm:min-w-[100px] shadow-[var(--shadow-soft)]">
       <div className="text-3xl sm:text-4xl font-bold text-primary tabular-nums">
         {pad(value)}
       </div>

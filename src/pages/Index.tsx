@@ -3,7 +3,7 @@ import { CountdownTimer } from '@/components/CountdownTimer';
 import { SubscribeForm } from '@/components/SubscribeForm';
 import { ContactLinks } from '@/components/ContactLinks';
 import { SkillsBadges } from '@/components/SkillsBadges';
-import profileImage from '@/assets/profile.jpg';
+import profileImage from '@/assets/profile.png';
 
 const Index = () => {
   return (
@@ -14,11 +14,11 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center space-y-12 sm:space-y-16">
           {/* Hero Section */}
           <header className="space-y-4 sm:space-y-6 animate-fade-in">
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center">
               <img
                 src={profileImage}
                 alt="CH Abdul Rahman - Full Stack Web Developer"
-                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-2xl shadow-[var(--shadow-elegant)] border-[3px] border-primary/20 hover:border-primary/40 transition-all duration-300 hover:scale-105"
+                className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 pt-1.5 object-cover bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full border border-primary/30 hover:border-primary/40 transition-all duration-300 hover:scale-105"
               />
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight">
